@@ -10,13 +10,13 @@ export default function About() {
       <Image src="/aboutbg.png" alt="" fill priority className="object-cover" />
 
       <div className="relative z-10 mx-auto grid w-full max-w-[1180px] items-center gap-10 px-6 md:grid-cols-2 md:gap-16 md:px-8">
-        <div className="overflow-hidden rounded-2xl">
+        <div className="group overflow-hidden rounded-2xl shadow-lg transition-shadow duration-300 hover:shadow-2xl">
           <Image
             src="/about1.png"
             alt="Eco Wellness Spa treatment room"
             width={754}
             height={421}
-            className="h-auto w-full object-cover"
+            className="h-auto w-full object-cover transition-transform duration-700 group-hover:scale-105"
           />
         </div>
 

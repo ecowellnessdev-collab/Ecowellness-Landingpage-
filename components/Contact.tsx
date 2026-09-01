@@ -42,7 +42,7 @@ export default function Contact() {
           <div className="mt-10 flex flex-col gap-4">
             <a
               href="tel:+919496598394"
-              className="flex items-center gap-3 text-white transition-colors hover:text-[#e6bf6a]"
+              className="flex items-center gap-3 text-white transition-all duration-300 hover:scale-105 hover:text-[#e6bf6a]"
             >
               <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0" fill="currentColor">
                 <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.57 3.58a1 1 0 0 1-.24 1.01l-2.21 2.2Z" />
@@ -51,7 +51,7 @@ export default function Contact() {
             </a>
             <a
               href="mailto:ecowelnessspa@gmail.com"
-              className="flex items-center gap-3 text-white transition-colors hover:text-[#e6bf6a]"
+              className="flex items-center gap-3 text-white transition-all duration-300 hover:scale-105 hover:text-[#e6bf6a]"
             >
               <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0" fill="currentColor">
                 <path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm0 2.24V6l8 5.99L20 6v.24l-8 5.75-8-5.75ZM4 8.51V18h16V8.51l-7.4 5.34a1 1 0 0 1-1.2 0L4 8.51Z" />
@@ -91,9 +91,9 @@ export default function Contact() {
             {socialLinks.map((social) => (
               <a
                 key={social.name}
-                href="#"
+                href={social.href || "#"}
                 aria-label={social.name}
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/40 text-white transition-colors hover:border-white hover:text-[#e6bf6a]"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/40 text-white transition-all duration-300 hover:scale-110 hover:border-[#e6bf6a] hover:text-[#e6bf6a] hover:shadow-[0_0_10px_rgba(230,191,106,0.5)]"
               >
                 {social.name === "Instagram" ? (
                   <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.5">

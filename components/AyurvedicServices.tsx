@@ -36,13 +36,13 @@ export default function AyurvedicServices() {
 
         <div className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
           {ayurvedicServices.map((service) => (
-            <div key={service.title}>
+            <div key={service.title} className="group cursor-pointer">
               <div className="relative aspect-square w-full overflow-hidden rounded-xl">
                 <Image
                   src={service.image}
                   alt={service.title}
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
               <h3 className="mt-6 text-lg font-semibold text-white">

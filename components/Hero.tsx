@@ -37,13 +37,13 @@ export default function Hero() {
             <div className="mt-8 flex flex-wrap justify-center gap-4 md:justify-start">
               <a
                 href="#book"
-                className="flex min-h-11 min-w-[134px] items-center justify-center rounded-md bg-gradient-to-b from-[#ffd986] to-[#f1bf61] px-12 py-3 text-sm font-semibold text-black transition-opacity hover:opacity-90"
+                className="flex min-h-11 min-w-[134px] items-center justify-center rounded-md bg-gradient-to-b from-[#ffd986] to-[#f1bf61] px-12 py-3 text-sm font-semibold text-black transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(255,217,134,0.4)] active:scale-95"
               >
                 Book Now
               </a>
               <a
                 href="#contact"
-                className="flex min-h-11 min-w-[116px] items-center justify-center rounded-md border border-white/60 bg-[#3a2517]/45 px-12 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+                className="flex min-h-11 min-w-[116px] items-center justify-center rounded-md border border-white/60 bg-[#3a2517]/45 px-12 py-3 text-sm font-semibold text-white transition-all duration-300 hover:scale-105 hover:bg-white/10 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)] active:scale-95"
               >
                 Call us
               </a>
@@ -52,7 +52,7 @@ export default function Hero() {
 
           <div
             id="book"
-            className="w-full max-w-sm scroll-mt-28 rounded-xl border border-white/10 bg-[#2a1c12]/70 p-8 shadow-2xl backdrop-blur-sm"
+            className="w-full max-w-sm scroll-mt-28 rounded-xl border border-white/10 bg-[#2a1c12]/70 p-8 shadow-2xl backdrop-blur-sm transition-transform duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)]"
           >
             <h2 className="text-2xl font-semibold leading-snug text-white">
               Expert Care.
@@ -95,7 +95,7 @@ export default function Hero() {
               </div>
               <button
                 type="submit"
-                className="mt-2 rounded-md bg-gradient-to-b from-[#f3d896] to-[#d3a04a] px-8 py-3 text-sm font-semibold text-[#3a2a10] transition-opacity hover:opacity-90"
+                className="mt-2 rounded-md bg-gradient-to-b from-[#f3d896] to-[#d3a04a] px-8 py-3 text-sm font-semibold text-[#3a2a10] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(243,216,150,0.4)] active:scale-95"
               >
                 Submit
               </button>

@@ -63,9 +63,9 @@ export default function Services() {
           {services.map((service) => (
             <div
               key={service.title}
-              className="relative overflow-hidden rounded-3xl p-8 text-center shadow-lg"
+              className="group relative overflow-hidden rounded-3xl p-8 text-center shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(230,191,106,0.15)]"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-[#ffd86d] to-[#787b46] opacity-40" />
+              <div className="absolute inset-0 bg-gradient-to-br from-[#ffd86d] to-[#787b46] opacity-40 transition-opacity duration-300 group-hover:opacity-50" />
               <div className="relative z-10">
                 <Image
                   src={service.icon}
