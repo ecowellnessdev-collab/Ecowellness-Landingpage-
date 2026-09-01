@@ -1,4 +1,5 @@
 import Image from "next/image";
+import FadeReveal from "./FadeReveal";
 
 const services = [
   {
@@ -55,36 +56,39 @@ export default function Services() {
       <Image src="/bgser.png" alt="" fill priority className="object-cover" />
 
       <div className="relative z-10 mx-auto w-full max-w-[1180px] px-6 md:px-8">
-        <h2 className="text-center text-3xl font-semibold text-[#e6bf6a] md:text-4xl">
-          Wellness &amp; Massage Therapies
-        </h2>
+        <FadeReveal>
+          <h2 className="text-center text-3xl font-semibold text-[#e6bf6a] md:text-4xl">
+            Wellness &amp; Massage Therapies
+          </h2>
+        </FadeReveal>
 
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) => (
-            <div
-              key={service.title}
-              className="group relative overflow-hidden rounded-3xl p-8 text-center shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(230,191,106,0.15)]"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-[#ffd86d] to-[#787b46] opacity-40 transition-opacity duration-300 group-hover:opacity-50" />
-              <div className="relative z-10">
-                <Image
-                  src={service.icon}
-                  alt=""
-                  width={56}
-                  height={56}
-                  className="mx-auto h-14 w-14 object-contain"
-                />
-                <h3 className="mt-4 text-lg font-semibold text-white">
-                  {service.title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-white/85">
-                  {service.description}
-                </p>
+          {services.map((service, index) => (
+            <FadeReveal key={service.title} delay={index * 0.1}>
+              <div
+                className="group relative h-full overflow-hidden rounded-3xl p-8 text-center shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(230,191,106,0.15)]"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-[#ffd86d] to-[#787b46] opacity-40 transition-opacity duration-300 group-hover:opacity-50" />
+                <div className="relative z-10">
+                  <Image
+                    src={service.icon}
+                    alt=""
+                    width={56}
+                    height={56}
+                    className="mx-auto h-14 w-14 object-contain"
+                  />
+                  <h3 className="mt-4 text-lg font-semibold text-white">
+                    {service.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-white/85">
+                    {service.description}
+                  </p>
+                </div>
               </div>
-            </div>
+            </FadeReveal>
           ))}
 
-          <div className="hidden items-end justify-center lg:col-span-2 lg:flex">
+          <FadeReveal delay={0.3} className="hidden lg:col-span-2 lg:flex items-end justify-center">
             <Image
               src="/servicebg.png"
               alt=""
@@ -92,7 +96,7 @@ export default function Services() {
               height={307}
               className="h-auto w-full max-w-[520px] object-contain"
             />
-          </div>
+          </FadeReveal>
         </div>
       </div>
     </section>

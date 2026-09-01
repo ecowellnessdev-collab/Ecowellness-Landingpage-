@@ -1,4 +1,5 @@
 import Image from "next/image";
+import FadeReveal from "./FadeReveal";
 
 const ayurvedicServices = [
   {
@@ -30,28 +31,32 @@ export default function AyurvedicServices() {
       <Image src="/ser2bg.webp" alt="" fill priority className="object-cover" />
 
       <div className="relative z-10 mx-auto w-full max-w-[1180px] px-6 md:px-8">
-        <h2 className="text-center text-3xl font-medium text-white md:text-4xl">
-          Ayurvedic Services
-        </h2>
+        <FadeReveal>
+          <h2 className="text-center text-3xl font-medium text-white md:text-4xl">
+            Ayurvedic Services
+          </h2>
+        </FadeReveal>
 
         <div className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-          {ayurvedicServices.map((service) => (
-            <div key={service.title} className="group cursor-pointer">
-              <div className="relative aspect-square w-full overflow-hidden rounded-xl">
-                <Image
-                  src={service.image}
-                  alt={service.title}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
-                />
+          {ayurvedicServices.map((service, index) => (
+            <FadeReveal key={service.title} delay={index * 0.1}>
+              <div className="group cursor-pointer h-full">
+                <div className="relative aspect-square w-full overflow-hidden rounded-xl">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                </div>
+                <h3 className="mt-6 text-lg font-semibold text-white">
+                  {service.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-white/80">
+                  {service.description}
+                </p>
               </div>
-              <h3 className="mt-6 text-lg font-semibold text-white">
-                {service.title}
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-white/80">
-                {service.description}
-              </p>
-            </div>
+            </FadeReveal>
           ))}
         </div>
       </div>

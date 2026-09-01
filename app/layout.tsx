@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   title: "Eco Wellness Spa",
   description:
     "At Eco Wellness Spa, we help you pause, heal, and rejuvenate with world-class facilities, exceptional hygiene, and personalized care.",
+  icons: {
+    icon: "/image.png",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
