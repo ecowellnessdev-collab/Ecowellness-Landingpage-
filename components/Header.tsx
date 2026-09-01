@@ -41,7 +41,7 @@ export default function Header() {
           .filter((entry) => entry.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
 
-        const sectionName = visibleEntry?.target.dataset.navSection;
+        const sectionName = (visibleEntry?.target as HTMLElement)?.dataset.navSection;
 
         if (sectionName) {
           setActiveSection(sectionName);
