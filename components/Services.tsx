@@ -94,7 +94,7 @@ export default function Services() {
               alt=""
               width={1070}
               height={307}
-              className="h-auto w-full max-w-[520px] object-contain"
+              className="h-auto w-full max-w-[833px] object-contain"
             />
           </FadeReveal>
         </div>

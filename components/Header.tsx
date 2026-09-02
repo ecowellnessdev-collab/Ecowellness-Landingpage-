@@ -73,7 +73,7 @@ export default function Header() {
           : "bg-transparent"
       }`}
     >
-      <nav className="mx-auto flex w-full max-w-[1180px] items-center justify-between px-6 py-4 md:px-8">
+      <nav className="mx-auto flex w-full max-w-[1180px] items-center justify-between px-6 pb-4 pt-[22px] md:px-8">
         <a href="#home" aria-label="Eco Wellness Spa home">
           <Image
             src="/logo-mark.png"
@@ -122,10 +122,10 @@ export default function Header() {
       </nav>
 
       <div
-        className={`md:hidden transition-all duration-200 ease-out ${
+        className={`overflow-hidden transition-all duration-200 ease-out md:hidden ${
           isMenuOpen
-            ? "translate-y-0 opacity-100"
-            : "pointer-events-none -translate-y-2 opacity-0"
+            ? "max-h-80 translate-y-0 opacity-100"
+            : "pointer-events-none max-h-0 -translate-y-2 opacity-0"
         }`}
       >
         <ul className="mx-6 mb-4 flex flex-col rounded-lg border border-white/10 bg-[#1d120b]/95 px-5 py-3 text-sm font-medium tracking-wide text-[#e8c27c] shadow-xl shadow-black/20">

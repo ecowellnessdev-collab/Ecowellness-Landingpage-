@@ -6,10 +6,8 @@ export default function About() {
     <section
       id="about"
       data-nav-section="about"
-      className="relative scroll-mt-24 overflow-hidden py-20"
+      className="relative scroll-mt-24 overflow-hidden bg-[#4b2d18] bg-[url('/aboutbg.png')] bg-repeat py-20"
     >
-      <Image src="/aboutbg.png" alt="" fill priority className="object-cover" />
-
       <div className="relative z-10 mx-auto grid w-full max-w-[1180px] items-center gap-10 px-6 md:grid-cols-2 md:gap-16 md:px-8">
         <FadeReveal>
           <div className="group overflow-hidden rounded-2xl shadow-lg transition-shadow duration-300 hover:shadow-2xl">
