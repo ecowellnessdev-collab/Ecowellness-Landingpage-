@@ -25,6 +25,7 @@ export default function FadeReveal({
       animate={
         isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
       }
+
       transition={{
         duration: 1,
         delay,
