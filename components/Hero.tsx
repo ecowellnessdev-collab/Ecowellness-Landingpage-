@@ -1,5 +1,6 @@
 import Image from "next/image";
 import FadeReveal from "./FadeReveal";
+import LeadForm from "./LeadForm";
 
 export default function Hero() {
   return (
@@ -68,42 +69,7 @@ export default function Hero() {
                 within 24 hours.
               </p>
 
-              <form className="mt-6 flex flex-col gap-4">
-                <div>
-                  <label
-                    htmlFor="fullName"
-                    className="mb-1 block text-xs text-white/70"
-                  >
-                    Full Name
-                  </label>
-                  <input
-                    id="fullName"
-                    type="text"
-                    placeholder="Enter Your Name"
-                    className="w-full rounded-md border border-white/20 bg-transparent px-4 py-2.5 text-sm text-white placeholder-white/40 outline-none focus:border-[#d3a04a]"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="phone"
-                    className="mb-1 block text-xs text-white/70"
-                  >
-                    Phone Number
-                  </label>
-                  <input
-                    id="phone"
-                    type="tel"
-                    placeholder="Enter Your Phone Number"
-                    className="w-full rounded-md border border-white/20 bg-transparent px-4 py-2.5 text-sm text-white placeholder-white/40 outline-none focus:border-[#d3a04a]"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="mt-2 rounded-md bg-gradient-to-b from-[#f3d896] to-[#d3a04a] px-8 py-3 text-sm font-semibold text-[#3a2a10] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(243,216,150,0.4)] active:scale-95"
-                >
-                  Submit
-                </button>
-              </form>
+              <LeadForm />
             </div>
           </FadeReveal>
         </div>
