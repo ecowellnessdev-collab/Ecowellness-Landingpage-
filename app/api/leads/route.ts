@@ -37,12 +37,7 @@ export async function POST(request: Request) {
       headers: {
         "Content-Type": "text/plain;charset=utf-8",
       },
-      // The script seems to expect: [Date, name, email, phone, source]
-      // To map correctly to the sheet's [TIME, NAME, PHONE, SOURCE] columns:
-      // - name goes to NAME
-      // - email goes to PHONE (we send phone here)
-      // - phone goes to SOURCE (we send "Website" here)
-      body: JSON.stringify({ fullName, email: phone, phone: "Website" }),
+      body: JSON.stringify({ fullName, phone }),
       redirect: "follow",
       cache: "no-store",
     });
