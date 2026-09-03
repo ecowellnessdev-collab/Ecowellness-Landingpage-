@@ -1,5 +1,5 @@
 const GOOGLE_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbzrKwFCbA54cfERUKXU3ZcALuINcGFszXCTTkMCunG3KPIqVvQv8a_3RagOVSxU1clY/exec";
+  "https://script.google.com/macros/s/AKfycbwdK-nr0vIC5nmxLnCi9fVZqwzkkyn1nM8n-aP6qDtBKnuAVzm5LOEu0bO1ABm9uhIG/exec";
 
 function cleanText(value: unknown) {
   return typeof value === "string" ? value.trim() : "";
@@ -37,7 +37,12 @@ export async function POST(request: Request) {
       headers: {
         "Content-Type": "text/plain;charset=utf-8",
       },
-      body: JSON.stringify({ fullName, phone }),
+      // The script seems to expect: [Date, name, email, phone, source]
+      // To map correctly to the sheet's [TIME, NAME, PHONE, SOURCE] columns:
+      // - name goes to NAME
+      // - email goes to PHONE (we send phone here)
+      // - phone goes to SOURCE (we send "Website" here)
+      body: JSON.stringify({ fullName, email: phone, phone: "Website" }),
       redirect: "follow",
       cache: "no-store",
     });
