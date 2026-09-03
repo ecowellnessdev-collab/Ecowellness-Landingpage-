@@ -1,64 +1,11 @@
-import { mkdir, readFile, writeFile } from "node:fs/promises";
-import path from "node:path";
-
-const ADMIN_PASSWORD = "ecowellness@360";
-const LEADS_FILE = path.join(process.cwd(), "data", "leads.json");
-
-type Lead = {
-  id: string;
-  fullName: string;
-  phone: string;
-  createdAt: string;
-};
-
-export const dynamic = "force-dynamic";
-export const runtime = "nodejs";
-
-async function readLeads(): Promise<Lead[]> {
-  try {
-    const file = await readFile(LEADS_FILE, "utf8");
-    const leads = JSON.parse(file);
-
-    return Array.isArray(leads) ? leads : [];
-  } catch (error) {
-    if (
-      error instanceof Error &&
-      "code" in error &&
-      error.code === "ENOENT"
-    ) {
-      return [];
-    }
-
-    throw error;
-  }
-}
-
-async function writeLeads(leads: Lead[]) {
-  await mkdir(path.dirname(LEADS_FILE), { recursive: true });
-  await writeFile(LEADS_FILE, JSON.stringify(leads, null, 2));
-}
+const GOOGLE_SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbzrKwFCbA54cfERUKXU3ZcALuINcGFszXCTTkMCunG3KPIqVvQv8a_3RagOVSxU1clY/exec";
 
 function cleanText(value: unknown) {
   return typeof value === "string" ? value.trim() : "";
 }
 
-export async function GET(request: Request) {
-  const password = request.headers.get("x-admin-password");
-
-  if (password !== ADMIN_PASSWORD) {
-    return Response.json({ error: "Invalid password" }, { status: 401 });
-  }
-
-  const leads = await readLeads();
-
-  return Response.json({
-    leads: leads.sort(
-      (first, second) =>
-        new Date(second.createdAt).getTime() -
-        new Date(first.createdAt).getTime(),
-    ),
-  });
-}
+export const dynamic = "force-dynamic";
 
 export async function POST(request: Request) {
   let payload: unknown;
@@ -84,15 +31,29 @@ export async function POST(request: Request) {
     );
   }
 
-  const leads = await readLeads();
-  const lead: Lead = {
-    id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
-    fullName,
-    phone,
-    createdAt: new Date().toISOString(),
-  };
+  try {
+    const response = await fetch(GOOGLE_SCRIPT_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "text/plain;charset=utf-8",
+      },
+      body: JSON.stringify({ fullName, phone }),
+      redirect: "follow",
+      cache: "no-store",
+    });
 
-  await writeLeads([lead, ...leads]);
+    if (!response.ok) {
+      return Response.json(
+        { error: "Unable to save lead. Please try again." },
+        { status: 502 },
+      );
+    }
 
-  return Response.json({ lead }, { status: 201 });
+    return Response.json({ success: true }, { status: 201 });
+  } catch {
+    return Response.json(
+      { error: "Unable to save lead. Please try again." },
+      { status: 502 },
+    );
+  }
 }
